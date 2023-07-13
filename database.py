@@ -6,7 +6,7 @@ class Database:
     def __init__(self, dbname):
         self.db = dbname
         self.setPath()
-        self.test
+        self.test()
 
     def test(self):
         try:
@@ -16,7 +16,7 @@ class Database:
             self.write()
 
     def setPath(self):
-        self.db = "backend/" + self.db + ".json"    
+        self.db = "data/" + self.db + ".json"    
     
     def read(self):
         with open(self.db, "r") as f:
@@ -33,6 +33,7 @@ class Database:
         return self.data[key]
     
     def set(self, key, value):
+        self.read()
         self.data[key] = value
         self.write()
 
